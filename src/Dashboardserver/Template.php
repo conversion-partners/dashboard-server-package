@@ -1,7 +1,7 @@
 <?php
 
 
-class Renderer
+class Template
 {
     private function engine()
     {
