@@ -1,0 +1,15 @@
+{
+  "name": "conversion-partners/dashboard-server-package",
+  "description": "server part of dashboard project",
+  "authors": [{
+    "name": "Robert Cooke",
+    "email": "robertjessecooke@gmail.com"
+  }],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-0": {
+      "Dashboardserver": "src/"
+    }
+  }
+}
