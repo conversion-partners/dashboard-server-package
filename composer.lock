@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a8c81c9a4ee696809a826cc89f8ee4bb",
+    "hash": "c0c028667257ec326ab36a264da43d54",
     "packages": [
+        {
+            "name": "conversion-partners/git",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/conversion-partners/git",
+                "reference": "e4f5f069b6aed492c8dc41cc18ed28d92ee67843"
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sebastian@phpunit.de"
+                }
+            ],
+            "description": "Simple wrapper for Git",
+            "homepage": "http://www.github.com/conversion-partners/git",
+            "keywords": [
+                "git"
+            ],
+            "time": "2015-08-30 09:02:36"
+        },
         {
             "name": "monolog/monolog",
             "version": "dev-master",
@@ -127,44 +165,6 @@
                 "psr-3"
             ],
             "time": "2015-06-02 13:48:41"
-        },
-        {
-            "name": "sebastian/git",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/git",
-                "reference": "27de483134bab3db7663cd400e145b58f9edd8ec"
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de"
-                }
-            ],
-            "description": "Simple wrapper for Git",
-            "homepage": "http://www.github.com/sebastianbergmann/git",
-            "keywords": [
-                "git"
-            ],
-            "time": "2015-06-30 05:13:18"
         },
         {
             "name": "zordius/lightncandy",
@@ -1171,7 +1171,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "sebastian/git": 20
+        "conversion-partners/git": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

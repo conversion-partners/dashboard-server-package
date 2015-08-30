@@ -7,13 +7,13 @@
   }],
   "repositories": [{
     "type": "git",
-    "url": "https://github.com/sebastianbergmann/git"
+    "url": "https://github.com/conversion-partners/git"
   }],
   "minimum-stability": "dev",
   "require": {
     "monolog/monolog": "*",
     "zordius/lightncandy": "*",
-    "sebastian/git": "dev-master"
+    "conversion-partners/git": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

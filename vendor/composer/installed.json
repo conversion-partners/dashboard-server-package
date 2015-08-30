@@ -777,46 +777,6 @@
         ]
     },
     {
-        "name": "sebastian/git",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/sebastianbergmann/git",
-            "reference": "27de483134bab3db7663cd400e145b58f9edd8ec"
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "time": "2015-06-29 22:50:19",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0-dev"
-            }
-        },
-        "installation-source": "source",
-        "autoload": {
-            "classmap": [
-                "src/"
-            ]
-        },
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Sebastian Bergmann",
-                "email": "sebastian@phpunit.de"
-            }
-        ],
-        "description": "Simple wrapper for Git",
-        "homepage": "http://www.github.com/sebastianbergmann/git",
-        "keywords": [
-            "git"
-        ]
-    },
-    {
         "name": "sebastian/recursion-context",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -1200,6 +1160,46 @@
             "Xdebug",
             "environment",
             "hhvm"
+        ]
+    },
+    {
+        "name": "conversion-partners/git",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/conversion-partners/git",
+            "reference": "e4f5f069b6aed492c8dc41cc18ed28d92ee67843"
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2015-08-30 09:02:36",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Sebastian Bergmann",
+                "email": "sebastian@phpunit.de"
+            }
+        ],
+        "description": "Simple wrapper for Git",
+        "homepage": "http://www.github.com/conversion-partners/git",
+        "keywords": [
+            "git"
         ]
     }
 ]
