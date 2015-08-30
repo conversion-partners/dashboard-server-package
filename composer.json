@@ -7,9 +7,13 @@
   }],
   "minimum-stability": "dev",
   "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
   "autoload": {
     "psr-0": {
-      "Dashboardserver": "src/"
+      "Dashboardserver": "src/",
+      "Dashboardserver\\Tests": "tests/"
     }
   }
 }
