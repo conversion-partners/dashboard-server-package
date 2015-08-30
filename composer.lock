@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/conversion-partners/git",
-                "reference": "e4f5f069b6aed492c8dc41cc18ed28d92ee67843"
+                "reference": "7514459a337001b88474d47cb798410a79e3577e"
             },
             "require": {
                 "php": ">=5.3.3"
@@ -42,7 +42,7 @@
             "keywords": [
                 "git"
             ],
-            "time": "2015-08-30 09:02:36"
+            "time": "2015-08-30 10:03:02"
         },
         {
             "name": "monolog/monolog",
