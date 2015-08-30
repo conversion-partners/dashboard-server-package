@@ -4,7 +4,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 use SebastianBergmann\Git\Git as Git;
 
-class Test extends \PHPUnit_Framework_TestCase
+class TestGit extends \PHPUnit_Framework_TestCase
 {
     public function testCheckout()
     {

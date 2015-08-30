@@ -2,7 +2,7 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-class Test extends \PHPUnit_Framework_TestCase
+class TestTemplate extends \PHPUnit_Framework_TestCase
 {
     private $accountData = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
 
