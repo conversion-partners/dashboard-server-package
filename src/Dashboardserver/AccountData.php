@@ -10,6 +10,8 @@ class AccountData
     private $themes = '/themes';
     private $jsonPages = '/data/pages.json';
     private $url;
+    private $country;
+    private $language;
     public function getPage()
     {
         $strJson = file_get_contents($this->getJsonPages());
@@ -20,6 +22,9 @@ class AccountData
                 return $page;
             }
         }
+    }
+    public function getPageDir()
+    {
     }
     public function setServerVars($server)
     {
@@ -52,6 +57,12 @@ class AccountData
     public function getJsonPages()
     {
         return $this->base.$this->jsonPages;
+    }
+    public function getLanguage()
+    {
+    }
+    public function getCountry()
+    {
     }
     public function getUrl()
     {
