@@ -6,8 +6,10 @@ class TestAccountData extends \PHPUnit_Framework_TestCase
 {
     private $accountPath = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
 
-    public function testTemplate()
+    public function testAccountData()
     {
+        echo 'Testing account : ';
+        exit;
         $server = array('REQUEST_URI' => '/contact.html','HTTP_HOST' => 'easydrain.nl');
 
         $account = new AccountData($accountPath);
