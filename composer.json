@@ -5,11 +5,15 @@
     "name": "Robert Cooke",
     "email": "robertjessecooke@gmail.com"
   }],
+  "repositories": [{
+    "type": "git",
+    "url": "https://github.com/sebastianbergmann/git"
+  }],
   "minimum-stability": "dev",
   "require": {
-    "monolog/monolog": "1.0.*",
+    "monolog/monolog": "*",
     "zordius/lightncandy": "*",
-    "sebastian/git": "1.0.*"
+    "sebastian/git": "dev-master"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'phpDocumentor' => array($vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
-    'Monolog' => array($vendorDir . '/monolog/monolog/src'),
     'Dashboardserver\\Tests' => array($baseDir . '/tests'),
     'Dashboardserver' => array($baseDir . '/src'),
 );
