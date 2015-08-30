@@ -2,23 +2,9 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-use SebastianBergmann\Git\Git as Git;
-
 class Test extends \PHPUnit_Framework_TestCase
 {
     private $accountData = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
-
-    public function testTrueIsTrue()
-    {
-        $foo = true;
-        $this->assertTrue($foo);
-    }
-
-    public function testCheckout()
-    {
-        $git = new Git('/var/www/dashboard-server-package/data/testrepo/dashboard');
-        $git->pull();
-    }
 
     public function testTemplate()
     {
