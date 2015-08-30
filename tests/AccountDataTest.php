@@ -16,7 +16,7 @@ class AccountDataTest extends \PHPUnit_Framework_TestCase
         $account = new AccountData($accountPath);
         $account->setServerVars($server);
 
-        $page = $account->getPageDir();
+        $page = $account->getPage();
         print_r($page);
         $this->assertTrue(true);
     }

@@ -14,29 +14,32 @@ class AccountData
     private $language;
     public function getPage()
     {
+        //FIXME for small site this is ok big site ??? performance issues
         $strJson = file_get_contents($this->getJsonPages());
         $pages = json_decode($strJson, true);
         foreach ($pages as $page) {
-            print_r($page);
             if ($this->server['REQUEST_URI'] == $page['url']) {
                 return $page;
             }
         }
     }
-    public function getSite(){
-      return '/easydrain.nl_null-null'
+    public function getSite()
+    {
+        return '/easydrain.nl_null-null';
     }
     public function getPageDir()
     {
-          $site = $this->getSite();
+        $site = $this->getSite();
     }
     public function setServerVars($server)
     {
         $this->server = $server;
     }
-    // $path no trailing slash
+
     public function __construct($path)
     {
+        // $path no trailing slash if trailing path then remove
+        // check if file exists
         $this->base = $path;
     }
     public function getBase()
