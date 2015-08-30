@@ -2,14 +2,15 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-class TestAccountData extends \PHPUnit_Framework_TestCase
-{
-    private $accountPath = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
+use Dashboardserver\AccountData as AccountData;
 
-    public function testAccountData()
+class AccountDataTest extends \PHPUnit_Framework_TestCase
+{
+    public function testAccount()
     {
         echo 'Testing account : ';
-        exit;
+        $accountPath = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
+
         $server = array('REQUEST_URI' => '/contact.html','HTTP_HOST' => 'easydrain.nl');
 
         $account = new AccountData($accountPath);
@@ -17,5 +18,6 @@ class TestAccountData extends \PHPUnit_Framework_TestCase
 
         $page = $account->getPage();
         print_r($page);
+        $this->assertTrue(true);
     }
 }

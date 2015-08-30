@@ -13,7 +13,7 @@
 namespace Composer\Autoload;
 
 /**
- * ClassLoader implements a PSR-0 class loader
+ * ClassLoader implements a PSR-0 class loader.
  *
  * See https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
  *
@@ -171,7 +171,7 @@ class ClassLoader
             // Register directories for a new namespace.
             $length = strlen($prefix);
             if ('\\' !== $prefix[$length - 1]) {
-                throw new \InvalidArgumentException("A non-empty PSR-4 prefix must end with a namespace separator.");
+                throw new \InvalidArgumentException('A non-empty PSR-4 prefix must end with a namespace separator.');
             }
             $this->prefixLengthsPsr4[$prefix[0]][$prefix] = $length;
             $this->prefixDirsPsr4[$prefix] = (array) $paths;
@@ -222,7 +222,7 @@ class ClassLoader
         } else {
             $length = strlen($prefix);
             if ('\\' !== $prefix[$length - 1]) {
-                throw new \InvalidArgumentException("A non-empty PSR-4 prefix must end with a namespace separator.");
+                throw new \InvalidArgumentException('A non-empty PSR-4 prefix must end with a namespace separator.');
             }
             $this->prefixLengthsPsr4[$prefix[0]][$prefix] = $length;
             $this->prefixDirsPsr4[$prefix] = (array) $paths;
@@ -292,7 +292,8 @@ class ClassLoader
     /**
      * Loads the given class or interface.
      *
-     * @param  string    $class The name of the class
+     * @param string $class The name of the class
+     *
      * @return bool|null True if loaded, null otherwise
      */
     public function loadClass($class)
@@ -344,14 +345,14 @@ class ClassLoader
     private function findFileWithExtension($class, $ext)
     {
         // PSR-4 lookup
-        $logicalPathPsr4 = strtr($class, '\\', DIRECTORY_SEPARATOR) . $ext;
+        $logicalPathPsr4 = strtr($class, '\\', DIRECTORY_SEPARATOR).$ext;
 
         $first = $class[0];
         if (isset($this->prefixLengthsPsr4[$first])) {
             foreach ($this->prefixLengthsPsr4[$first] as $prefix => $length) {
                 if (0 === strpos($class, $prefix)) {
                     foreach ($this->prefixDirsPsr4[$prefix] as $dir) {
-                        if (file_exists($file = $dir . DIRECTORY_SEPARATOR . substr($logicalPathPsr4, $length))) {
+                        if (file_exists($file = $dir.DIRECTORY_SEPARATOR.substr($logicalPathPsr4, $length))) {
                             return $file;
                         }
                     }
@@ -361,7 +362,7 @@ class ClassLoader
 
         // PSR-4 fallback dirs
         foreach ($this->fallbackDirsPsr4 as $dir) {
-            if (file_exists($file = $dir . DIRECTORY_SEPARATOR . $logicalPathPsr4)) {
+            if (file_exists($file = $dir.DIRECTORY_SEPARATOR.$logicalPathPsr4)) {
                 return $file;
             }
         }
@@ -370,17 +371,17 @@ class ClassLoader
         if (false !== $pos = strrpos($class, '\\')) {
             // namespaced class name
             $logicalPathPsr0 = substr($logicalPathPsr4, 0, $pos + 1)
-                . strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
+                .strtr(substr($logicalPathPsr4, $pos + 1), '_', DIRECTORY_SEPARATOR);
         } else {
             // PEAR-like class name
-            $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR) . $ext;
+            $logicalPathPsr0 = strtr($class, '_', DIRECTORY_SEPARATOR).$ext;
         }
 
         if (isset($this->prefixesPsr0[$first])) {
             foreach ($this->prefixesPsr0[$first] as $prefix => $dirs) {
                 if (0 === strpos($class, $prefix)) {
                     foreach ($dirs as $dir) {
-                        if (file_exists($file = $dir . DIRECTORY_SEPARATOR . $logicalPathPsr0)) {
+                        if (file_exists($file = $dir.DIRECTORY_SEPARATOR.$logicalPathPsr0)) {
                             return $file;
                         }
                     }
@@ -390,7 +391,7 @@ class ClassLoader
 
         // PSR-0 fallback dirs
         foreach ($this->fallbackDirsPsr0 as $dir) {
-            if (file_exists($file = $dir . DIRECTORY_SEPARATOR . $logicalPathPsr0)) {
+            if (file_exists($file = $dir.DIRECTORY_SEPARATOR.$logicalPathPsr0)) {
                 return $file;
             }
         }
