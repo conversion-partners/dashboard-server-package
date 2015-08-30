@@ -15,6 +15,7 @@ class Test extends \PHPUnit_Framework_TestCase
     public function testCheckout()
     {
         $git = new Git('/var/www/dashboard-server-package/data/testrepo/dashboard');
+        $git->pull();
     }
 
     public function testTemplate()
