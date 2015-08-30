@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of Git.
  *
@@ -35,7 +36,7 @@ class Git
     public function checkout($revision)
     {
         $this->execute(
-            'git checkout --force --quiet ' . $revision . ' 2>&1'
+            'git checkout --force --quiet '.$revision.' 2>&1'
         );
     }
 
@@ -52,14 +53,15 @@ class Git
     }
 
     /**
-     * @param  string $from
-     * @param  string $to
+     * @param string $from
+     * @param string $to
+     *
      * @return string
      */
     public function getDiff($from, $to)
     {
         $output = $this->execute(
-            'git diff --no-ext-diff ' . $from . ' ' . $to
+            'git diff --no-ext-diff '.$from.' '.$to
         );
 
         return implode("\n", $output);
@@ -74,10 +76,10 @@ class Git
             'git log --no-merges --date-order --reverse --format=medium'
         );
 
-        $numLines  = count($output);
+        $numLines = count($output);
         $revisions = array();
 
-        for ($i = 0; $i < $numLines; $i++) {
+        for ($i = 0; $i < $numLines; ++$i) {
             $tmp = explode(' ', $output[$i]);
 
             if (count($tmp) == 2 && $tmp[0] == 'commit') {
@@ -86,13 +88,13 @@ class Git
                 $author = implode(' ', array_slice($tmp, 1));
             } elseif (count($tmp) == 9 && $tmp[0] == 'Date:') {
                 $revisions[] = array(
-                  'author'  => $author,
-                  'date'    => DateTime::createFromFormat(
+                  'author' => $author,
+                  'date' => DateTime::createFromFormat(
                       'D M j H:i:s Y O',
                       implode(' ', array_slice($tmp, 3))
                   ),
-                  'sha1'    => $sha1,
-                  'message' => isset($output[$i+2]) ? trim($output[$i+2]) : ''
+                  'sha1' => $sha1,
+                  'message' => isset($output[$i + 2]) ? trim($output[$i + 2]) : '',
                 );
             }
         }
@@ -101,7 +103,8 @@ class Git
     }
 
     /**
-     * @param  string           $command
+     * @param string $command
+     *
      * @throws RuntimeException
      */
     protected function execute($command)
