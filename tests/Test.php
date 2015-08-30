@@ -22,6 +22,6 @@ class Test extends \PHPUnit_Framework_TestCase
         $template = "Welcome {{name}} , You win \${{value}} dollars!!\n";
         $phpStr = LightnCandy::compile($template);
         $renderer = LightnCandy::prepare($phpStr);
-        echo $renderer(array('name' => 'John', 'value' => 10000));
+        $this->assertEquals(trim($renderer(array('name' => 'John', 'value' => 10000))), 'Welcome John , You win $10000 dollars!!');
     }
 }
