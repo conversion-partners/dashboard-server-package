@@ -12,16 +12,33 @@ class AccountData
     private $url;
     private $country;
     private $language;
-    public function getPage()
+
+    private function getCompletePage()
     {
         //FIXME for small site this is ok big site ??? performance issues
         $strJson = file_get_contents($this->getJsonPages());
         $pages = json_decode($strJson, true);
         foreach ($pages as $page) {
             if ($this->server['REQUEST_URI'] == $page['url']) {
-                return $page;
+                return $page; // yup just the first page
             }
         }
+
+        return false;
+    }
+    private function getCorrectVersion($page)
+    {
+        return $page;
+    }
+    public function getPage()
+    {
+        $page = $this->getCompletePage();
+        if (!$page) {
+            return $page;
+        }
+        $version = $this->getCorrectVersion($page);
+
+        return $version;
     }
     public function getSite()
     {

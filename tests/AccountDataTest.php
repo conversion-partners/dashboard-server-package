@@ -8,16 +8,22 @@ class AccountDataTest extends \PHPUnit_Framework_TestCase
 {
     public function testAccount()
     {
-        echo 'Testing account : ';
-        $accountPath = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
-
+        $accountPath = 'data/accounts/easydrain';
         $server = array('REQUEST_URI' => '/contact.html','HTTP_HOST' => 'easydrain.nl');
-
         $account = new AccountData($accountPath);
         $account->setServerVars($server);
-
         $page = $account->getPage();
         print_r($page);
+        ////data/accounts/easydrain/sites/easydrain.nl_null-null/pages/contact/versions/version-one
         $this->assertTrue(true);
+    }
+    public function testNoPage()
+    {
+        $accountPath = 'data/accounts/easydrain';
+        $server = array('REQUEST_URI' => '/no-contact.html','HTTP_HOST' => 'easydrain.nl');
+        $account = new AccountData($accountPath);
+        $account->setServerVars($server);
+        $page = $account->getPage();
+        $this->assertFalse($page);
     }
 }
