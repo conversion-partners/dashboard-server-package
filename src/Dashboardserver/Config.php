@@ -5,7 +5,6 @@ namespace Dashboardserver;
 class Config
 {
     private $domains = null;
-    private $origins = null;
     private $debug = null;
     private $localeStrategy = null;
     private $serverStrategy = null;
@@ -51,20 +50,6 @@ class Config
     {
         if ($this->domains == null) {
             $this->domains = $domains;
-        }
-
-        return $this;
-    }
-
-    public function getOrigins()
-    {
-        return $this->origins;
-    }
-
-    public function setOrigins($origins)
-    {
-        if ($this->origins == null) {
-            $this->origins = $origins;
         }
 
         return $this;
