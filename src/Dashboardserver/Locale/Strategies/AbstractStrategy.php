@@ -11,6 +11,11 @@ abstract class AbstractStrategy
         return $this->getValue();
     }
 
+    public function setHost($host)
+    {
+        $this->host = $host;
+    }
+
     public function setServerEnv($server)
     {
         $this->server = $server;
