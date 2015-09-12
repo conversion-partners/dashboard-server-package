@@ -11,10 +11,13 @@ class Server
     private function getLocaleFolder()
     {
         $locale = $this->config->getLocaleStrategy();
-        $locale->setHost($this->config->getHost());
+        $host = $this->config->getHost();
+        $locale->setHost($host);
         $locale->setServerEnv($this->server);
 
         $folder = $locale->getFolder();
+
+        echo 'folder : '.$folder;
 
         return $folder;
     }

@@ -19,16 +19,12 @@ class Config
         $account = '';
         if ($aliasDomain) {
             $account = isset($this->domains[$aliasDomain]) ? $this->domains[$aliasDomain] : false;
-            if ($account) {
-                $this->host = $aliasDomain;
-            }
+            $this->host = $aliasDomain;
         }
 
-        if (!$account) {
+        if (!$account && !$aliasDomain) {
             $account = isset($this->domains[$this->requestDomain]) ? $this->domains[$this->requestDomain] : false;
-            if ($account) {
-                $this->host = $this->requestDomain;
-            }
+            $this->host = $this->requestDomain;
         }
 
         return $account;
@@ -36,7 +32,7 @@ class Config
 
     public function getHost()
     {
-        $this->host;
+        return $this->host;
     }
 
     public function setRequestDomain($host)

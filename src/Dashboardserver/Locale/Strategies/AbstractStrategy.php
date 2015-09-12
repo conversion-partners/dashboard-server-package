@@ -5,11 +5,7 @@ namespace Dashboardserver\Locale\Strategies;
 abstract class AbstractStrategy
 {
     abstract protected function getFolder();
-
-    public function setHost($host)
-    {
-        $this->host = $host;
-    }
+    abstract protected function setHost($host);
 
     public function setServerEnv($server)
     {
