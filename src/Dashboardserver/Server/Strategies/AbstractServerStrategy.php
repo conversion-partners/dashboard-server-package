@@ -11,6 +11,13 @@ abstract class AbstractServerStrategy
         return $this;
     }
 
+    public function setServerObject($serverObj)
+    {
+        $this->serverObject = $serverObj;
+
+        return $this;
+    }
+
     public function getDomainLocaleFolder()
     {
         return $this->getValue();
