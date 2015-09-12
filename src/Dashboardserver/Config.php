@@ -1,5 +1,7 @@
 <?php
 
+namespace Dashboardserver;
+
 class Config
 {
     private $domains = null;
@@ -54,8 +56,3 @@ class Config
         return $this;
     }
 }
-
-$config = new Config();
-$config->setDebug(true);
-$config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'easydrain'));
-$config->setOrigins(array('http://localhost:9090/' => 'active', 'http://localhost:9090/' => 'active'));
