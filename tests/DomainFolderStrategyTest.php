@@ -17,6 +17,7 @@ class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
         $config->setDebug(true);
         $config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'easydrain'));
         $config->setOrigins(array('http://localhost:9090/' => 'active', 'http://localhost:9090/' => 'active'));
+        $config->setLocaleStrategy('DomainFolder');
 
         $server->setConfig($config);
         $server->setServerVars($serverVars);
