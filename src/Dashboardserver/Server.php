@@ -11,7 +11,12 @@ class Server
     private function getLocaleFolder()
     {
         $locale = $this->config->getLocaleStrategy();
+        $locale->setHost($this->config->getHost());
         $locale->setServerEnv($this->server);
+
+        $folder = $locale->getFolder();
+
+        return $folder;
     }
 
     private function getPageFolder()
@@ -64,6 +69,7 @@ class Server
     {
         $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new Server\ServerEnv())->getCleanServerEnv();
         $this->config->setRequestDomain($this->server->getHost());
+
         $account = $this->config->getAccount();
         if ($account) {
             $this->setAccount($account);

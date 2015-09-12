@@ -11,12 +11,32 @@ class Config
     private $serverStrategy = null;
     private $accountPath = null;
     private $requestDomain = null;
+    private $host = null;
 
     public function getAccount()
     {
-        $account = isset($this->domains[$this->requestDomain]) ? $this->domains[$this->requestDomain] : false;
-        // if not check aliases
+        $aliasDomain = isset($this->domainAliases[$this->requestDomain]) ? $this->domainAliases[$this->requestDomain] : false;
+        $account = '';
+        if ($aliasDomain) {
+            $account = isset($this->domains[$aliasDomain]) ? $this->domains[$aliasDomain] : false;
+            if ($account) {
+                $this->host = $aliasDomain;
+            }
+        }
+
+        if (!$account) {
+            $account = isset($this->domains[$this->requestDomain]) ? $this->domains[$this->requestDomain] : false;
+            if ($account) {
+                $this->host = $this->requestDomain;
+            }
+        }
+
         return $account;
+    }
+
+    public function getHost()
+    {
+        $this->host;
     }
 
     public function setRequestDomain($host)
