@@ -8,18 +8,35 @@ class Server
     private $server;
     private $account;
 
-    public function getLocaleFolder()
+    private function getLocaleFolder()
     {
+    }
+
+    private function getPageFolder()
+    {
+    }
+
+    private function getVersionFolder()
+    {
+    }
+
+    private function getPagePath()
+    {
+        $path = $this->getLocaleFolder().$this->getPageFolder().$this->getVersionFolder().'index.html';
+
+        return $path;
     }
 
     public function pageExists()
     {
+        return file_exists($this->getPagePath());
     }
     public function showPage()
     {
+        $page = file_get_contents($this->getPagePath());
     }
 
-    public function init()
+    public function showEnv()
     {
         var_dump($this->config);
         var_dump($this->server);
@@ -55,7 +72,7 @@ class Server
         }
 
         if ($this->config->getDebug()) {
-            $this->init();
+            $this->showEnv();
         }
     }
 }
