@@ -5,6 +5,7 @@ namespace Dashboardserver;
 class Config
 {
     private $domains = null;
+    private $domainAliases = null;
     private $debug = null;
     private $localeStrategy = null;
     private $serverStrategy = null;
@@ -39,6 +40,11 @@ class Config
     public function getDebug()
     {
         return $this->debug;
+    }
+
+    public function setDomainAliases($aliases)
+    {
+        $this->domainAliases = $aliases;
     }
 
     public function getDomains()
