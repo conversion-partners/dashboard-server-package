@@ -2,7 +2,9 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-class AccountDataTest extends \PHPUnit_Framework_TestCase
+use Dashboardserver\Server as Server;
+
+class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
 {
     public function testAccountGetPageVersionData()
     {
