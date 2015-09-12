@@ -6,6 +6,13 @@ class Server
 {
     private $conf;
     private $server;
+    private $accountData;
+
+    public function setAccount($data)
+    {
+        $this->accountData = $data;
+    }
+
     public function setConfig($config)
     {
         $this->conf = $config;

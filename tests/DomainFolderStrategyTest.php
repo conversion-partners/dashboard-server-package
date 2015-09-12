@@ -14,13 +14,17 @@ class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
         $config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'easydrain'));
         $config->setOrigins(array('http://localhost:9090/' => 'active', 'http://localhost:9090/' => 'active'));
         $config->setLocaleStrategy('DomainFolder');
-        $config->setAccountPath('data/accounts/easydrain');
+        $config->setAccountPath('data/accounts/');
 
         $serverVars = array('REQUEST_URI' => '/reference-hotels-w','HTTP_HOST' => 'easydrain.nl');
+
+        $accountName = 'easydrain';
+        $account = new AccountData($accountName);
 
         $server = new Server();
         $server->setConfig($config);
         $server->setServerVars($serverVars);
+        $server->setAccount($account);
         $server->start();
     }
 }
