@@ -10,7 +10,7 @@ mkdir /path/to/your/project
 cd /path/to/your/project
 git init
 git remote add origin https://easydrain@bitbucket.org/easydrain/easydrain.git
-
+git pull
 
 Create your first file, commit, and push
 echo "Easydrain Easydrain" >> contributors.txt
