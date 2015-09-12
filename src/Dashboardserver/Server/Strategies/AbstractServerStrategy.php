@@ -4,11 +4,11 @@ namespace Dashboardserver\Server\Strategies;
 
 abstract class AbstractServerStrategy
 {
-    abstract protected function getValue();
-
-    public function setServerVars($server)
+    public function setServerEnv($server)
     {
         $this->server = $server;
+
+        return $this;
     }
 
     public function getDomainLocaleFolder()

@@ -23,7 +23,8 @@ class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
           );
 
         $server = new Server($config, $server_env);
-        $server->start();
+        $server->init();
+
         $locale = $server->getLocaleFolder();
 
         echo 'locale : '.$locale;

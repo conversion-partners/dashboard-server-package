@@ -4,23 +4,22 @@ namespace Dashboardserver;
 
 class Server
 {
-    private $conf;
+    private $config;
     private $server;
     private $account;
 
     public function getLocaleFolder()
     {
     }
-    public function start()
+    public function init()
     {
-        echo '<pre>';
-        print_r($this->conf);
-        print_r($this->server);
+        var_dump($this->config);
+        var_dump($this->server);
     }
     public function __construct($config, $server)
     {
         $this->setConfig($config);
-        $this->setServerVars($server);
+        $this->setServerEnv($server);
     }
     private function setAccount($account)
     {
@@ -29,11 +28,11 @@ class Server
 
     private function setConfig($config)
     {
-        $this->conf = $config;
+        $this->config = $config;
     }
-    private function setServerVars($server)
+    private function setServerEnv($server)
     {
-        $this->server = $server;
+        $this->server = $this->config->getServerStrategy()->setServerEnv($server)->getCleanServerEnv();
 
         // based on request set account
         //         $this->setAccount($account);

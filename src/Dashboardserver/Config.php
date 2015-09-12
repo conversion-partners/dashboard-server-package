@@ -28,6 +28,11 @@ class Config
         $this->serverStrategy = new $class();
     }
 
+    public function getServerStrategy()
+    {
+        return $this->serverStrategy;
+    }
+
     public function setDebug($debug)
     {
         if ($this->debug == null) {
