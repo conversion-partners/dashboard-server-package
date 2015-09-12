@@ -10,6 +10,8 @@ class Server
 
     private function getLocaleFolder()
     {
+        $locale = $this->config->getLocaleStrategy();
+        $locale->setServerEnv($this->server);
     }
 
     private function getPageFolder()

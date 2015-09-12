@@ -40,6 +40,11 @@ class Config
         $this->localeStrategy = new $class();
     }
 
+    public function getLocaleStrategy()
+    {
+        return $this->localeStrategy;
+    }
+
     public function setServerStrategy($strategy)
     {
         $class = 'Dashboardserver\Server\Strategies\\'.$strategy;
