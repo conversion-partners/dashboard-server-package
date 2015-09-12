@@ -4,12 +4,7 @@ namespace Dashboardserver\Locale\Strategies;
 
 abstract class AbstractStrategy
 {
-    abstract protected function getValue();
-
-    public function getDomainLocaleFolder()
-    {
-        return $this->getValue();
-    }
+    abstract protected function getFolder();
 
     public function setHost($host)
     {
