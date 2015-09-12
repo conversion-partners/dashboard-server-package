@@ -36,6 +36,11 @@ class Server
         $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new Server\ServerEnv())->getCleanServerEnv();
 
         $this->config->setRequestDomain($this->server->getHost());
-        $this->setAccount(new Account($this->config->getAccount()));
+        $account = $this->config->getAccount();
+        if ($account) {
+            $this->setAccount(new Account($account));
+        } else {
+            echo 'No account for this request..';
+        }
     }
 }

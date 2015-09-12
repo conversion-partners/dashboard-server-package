@@ -14,7 +14,9 @@ class Config
 
     public function getAccount()
     {
-        return 'easydrain';
+        $account = $this->domains[$this->requestDomain];
+        // if not check aliases
+        return $account;
     }
 
     public function setRequestDomain($host)
