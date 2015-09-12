@@ -6,18 +6,18 @@ class Server
 {
     private $conf;
     private $server;
-    private $accountData;
+    private $account;
 
-    public function setAccount($data)
+    private function setAccount($account)
     {
-        $this->accountData = $data;
+        $this->account = $account;
     }
 
-    public function setConfig($config)
+    private function setConfig($config)
     {
         $this->conf = $config;
     }
-    public function setServerVars($server)
+    private function setServerVars($server)
     {
         $this->server = $server;
     }
@@ -27,7 +27,10 @@ class Server
         print_r($this->conf);
         print_r($this->server);
     }
-    public function __construct()
+    public function __construct($config, $account, $server)
     {
+        $this->setConfig($config);
+        $this->setAccount($account);
+        $this->setServerVars($server);
     }
 }

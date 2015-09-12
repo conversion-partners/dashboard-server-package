@@ -2,7 +2,7 @@
 
 namespace Dashboardserver;
 
-class AccountData
+class Account
 {
     private $base;
     private $blocks = '/blocks';
@@ -12,6 +12,12 @@ class AccountData
     private $url;
     private $country;
     private $language;
+    private $account;
+
+    public function setAccount($account)
+    {
+        $this->account = $account;
+    }
 
     private function getCompletePage()
     {

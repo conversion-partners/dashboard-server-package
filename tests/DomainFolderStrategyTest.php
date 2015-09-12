@@ -16,10 +16,13 @@ class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
         $config->setLocaleStrategy('DomainFolder');
         $config->setAccountPath('data/accounts/');
 
-        $serverVars = array('REQUEST_URI' => '/reference-hotels-w','HTTP_HOST' => 'easydrain.nl');
-
         $accountName = 'easydrain';
         $account = new AccountData($accountName);
+
+        $serverVars = array(
+          'HTTP_HOST' => 'easydrain.nl',
+          'REQUEST_URI' => '/reference-hotels-w',
+          );
 
         $server = new Server();
         $server->setConfig($config);
