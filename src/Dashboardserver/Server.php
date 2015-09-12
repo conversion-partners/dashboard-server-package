@@ -32,7 +32,7 @@ class Server
     }
     private function setServerEnv($server)
     {
-        $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new 'Server\ServerEnv')->getCleanServerEnv();
+        $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new Server\ServerEnv())->getCleanServerEnv();
 
         // based on request set account
         //         $this->setAccount($account);
