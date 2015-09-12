@@ -11,6 +11,14 @@ class Server
     public function getLocaleFolder()
     {
     }
+
+    public function pageExists()
+    {
+    }
+    public function showPage()
+    {
+    }
+
     public function init()
     {
         var_dump($this->config);
@@ -45,6 +53,9 @@ class Server
 
             return;
         }
-        $this->init();
+
+        if ($this->config->getDebug()) {
+            $this->init();
+        }
     }
 }
