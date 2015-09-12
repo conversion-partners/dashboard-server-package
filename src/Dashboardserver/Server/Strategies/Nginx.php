@@ -6,8 +6,8 @@ class Nginx extends AbstractServerStrategy
 {
     public function getCleanServerEnv()
     {
-        // use $this->server;  to fill $this->serverObject;
         $this->serverObject->setHost($this->server['HTTP_HOST']);
+        $this->serverObject->setUrl($this->server['REQUEST_URI']);
 
         return $this->serverObject;
     }
