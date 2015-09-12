@@ -4,6 +4,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 use Dashboardserver\Server as Server;
 use Dashboardserver\Config as Config;
+use Dashboardserver\Account as Account;
 
 class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,18 +17,14 @@ class DomainFolderStrategyTest extends \PHPUnit_Framework_TestCase
         $config->setLocaleStrategy('DomainFolder');
         $config->setAccountPath('data/accounts/');
 
-        $accountName = 'easydrain';
-        $account = new AccountData($accountName);
+        $account = new Account('easydrain');
 
-        $serverVars = array(
+        $server_env = array(
           'HTTP_HOST' => 'easydrain.nl',
           'REQUEST_URI' => '/reference-hotels-w',
           );
 
-        $server = new Server();
-        $server->setConfig($config);
-        $server->setServerVars($serverVars);
-        $server->setAccount($account);
+        $server = new Server($config, $account, $server_env);
         $server->start();
     }
 }
