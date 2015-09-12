@@ -8,6 +8,12 @@ class Config
     private $origins = null;
     private $debug = null;
     private $localeStrategy = null;
+    private $accountPath = null;
+
+    public function setAccountPath($path)
+    {
+        $this->accountPath = $path;
+    }
 
     public function setLocaleStrategy($strategy)
     {
