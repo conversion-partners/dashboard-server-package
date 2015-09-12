@@ -27,6 +27,6 @@ class DomainFolder extends AbstractStrategy
     {
         $this->process();
 
-        return $this->host.'_null-null';
+        return $this->host.'_'.$this->tld.'-null';
     }
 }
