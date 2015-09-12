@@ -27,4 +27,3 @@ $server_env = array(
 $server_env = $_SERVER;
 
 $server = new Server($config, $server_env);
-$server->init();

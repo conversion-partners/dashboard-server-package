@@ -14,9 +14,11 @@ class Account
     private $language;
     private $account;
 
-    public function setAccount($account)
+    public function setAccountBasePath($path)
     {
-        $this->account = $account;
+        // $path no trailing slash if trailing path then remove
+      // check if file exists
+      $this->base = $path.$this->account;
     }
 
     private function getCompletePage()
@@ -59,11 +61,9 @@ class Account
         $this->server = $server;
     }
 
-    public function __construct($path)
+    public function __construct($account)
     {
-        // $path no trailing slash if trailing path then remove
-        // check if file exists
-        $this->base = $path;
+        $this->account = $account;
     }
     public function getBase()
     {

@@ -14,7 +14,7 @@ class Config
 
     public function getAccount()
     {
-        $account = $this->domains[$this->requestDomain];
+        $account = isset($this->domains[$this->requestDomain]) ? $this->domains[$this->requestDomain] : false;
         // if not check aliases
         return $account;
     }
@@ -27,6 +27,11 @@ class Config
     public function setAccountPath($path)
     {
         $this->accountPath = $path;
+    }
+
+    public function getAccountPath()
+    {
+        return $this->accountPath;
     }
 
     public function setLocaleStrategy($strategy)

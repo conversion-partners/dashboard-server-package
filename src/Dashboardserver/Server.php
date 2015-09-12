@@ -24,7 +24,9 @@ class Server
     }
     private function setAccount($account)
     {
-        $this->account = $account;
+        $accountObj = new Account($account);
+        $accountObj->setAccountBasePath($this->config->getAccountPath());
+        $this->account = $accountObj;
     }
 
     private function setConfig($config)
@@ -34,13 +36,15 @@ class Server
     private function setServerEnv($server)
     {
         $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new Server\ServerEnv())->getCleanServerEnv();
-
         $this->config->setRequestDomain($this->server->getHost());
         $account = $this->config->getAccount();
         if ($account) {
-            $this->setAccount(new Account($account));
+            $this->setAccount($account);
         } else {
             echo 'No account for this request..';
+
+            return;
         }
+        $this->init();
     }
 }
