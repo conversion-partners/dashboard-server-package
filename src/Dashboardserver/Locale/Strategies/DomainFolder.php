@@ -6,6 +6,7 @@ class DomainFolder extends AbstractStrategy
 {
     private $tld;
     protected $host;
+    private $language = 'null';
 
     public function setHost($host)
     {
@@ -17,16 +18,25 @@ class DomainFolder extends AbstractStrategy
         $host = parse_url('http://'.$this->host);
         preg_match('/(.*?)((\.co)?.[a-z]{2,4})$/i', $host['host'], $m);
         $this->tld = isset($m[2]) ? $m[2] : 'null';
-      // get tld for country
-      // get first folder for language
+        $this->tld = ltrim($this->tld, '.');
 
-      $url = $this->server->getUrl();
+        // get tld for country
+        // get first folder for language
+
+        $url = $this->server->getUrl();
+
+        $urlParts = explode('/', $url);
+        print_r($urlParts);
+        if (count($urlParts) > 2) {
+            // see if there is a language component
+            $this->language = 'null';// see if arr[1] exist in language array
+        }
     }
 
     public function getFolder()
     {
         $this->process();
 
-        return $this->host.'_'.$this->tld.'-null';
+        return $this->host.'_'.$this->tld.'-'.$this->language.'/';
     }
 }

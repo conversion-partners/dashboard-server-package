@@ -17,13 +17,14 @@ class Server
 
         $folder = $locale->getFolder();
 
-        echo 'folder : '.$folder;
-
         return $folder;
     }
 
     private function getPageFolder()
     {
+        print_r($this->account);
+
+        return $this->account->getPageFolder();
     }
 
     private function getVersionFolder()
@@ -32,7 +33,9 @@ class Server
 
     private function getPagePath()
     {
-        $path = $this->getLocaleFolder().$this->getPageFolder().$this->getVersionFolder().'index.html';
+        $path = $this->account->getSites().'/'.$this->getLocaleFolder().$this->getPageFolder().$this->getVersionFolder().'index.html';
+
+        echo 'Page path : '.$path;
 
         return $path;
     }
@@ -60,6 +63,7 @@ class Server
     private function setAccount($account)
     {
         $accountObj = new Account($account);
+        $accountObj->setServerEnv($this->server);
         $accountObj->setAccountBasePath($this->config->getAccountPath());
         $this->account = $accountObj;
     }
@@ -83,7 +87,7 @@ class Server
         }
 
         if ($this->config->getDebug()) {
-            $this->showEnv();
+            //$this->showEnv();
         }
     }
 }

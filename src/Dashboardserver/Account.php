@@ -27,7 +27,7 @@ class Account
         $strJson = file_get_contents($this->getJsonPages());
         $pages = json_decode($strJson, true);
         foreach ($pages as $page) {
-            if ($this->server['REQUEST_URI'] == $page['url']) {
+            if ($this->server->getUrl() == $page['url']) {
                 return $page; // yup just the first page
             }
         }
@@ -38,6 +38,13 @@ class Account
     {
         return $page;
     }
+
+    public function getPageFolder()
+    {
+        $page = $this->getCompletePage();
+        //print_r($page);
+    }
+
     public function getPage()
     {
         $page = $this->getCompletePage();
@@ -56,7 +63,7 @@ class Account
     {
         $site = $this->getSite();
     }
-    public function setServerVars($server)
+    public function setServerEnv($server)
     {
         $this->server = $server;
     }
