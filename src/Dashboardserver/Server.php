@@ -15,6 +15,7 @@ class Server
     {
         var_dump($this->config);
         var_dump($this->server);
+        var_dump($this->account);
     }
     public function __construct($config, $server)
     {
@@ -34,7 +35,7 @@ class Server
     {
         $this->server = $this->config->getServerStrategy()->setServerEnv($server)->setServerObject(new Server\ServerEnv())->getCleanServerEnv();
 
-        // based on request set account
-        //         $this->setAccount($account);
+        $this->config->setRequestDomain($this->server->getHost());
+        $this->setAccount(new Account($this->config->getAccount()));
     }
 }

@@ -24,5 +24,7 @@ $server_env = array(
   'REQUEST_URI' => '/reference-hotels-w',
   );
 
+$server_env = $_SERVER;
+
 $server = new Server($config, $server_env);
 $server->init();

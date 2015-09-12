@@ -10,6 +10,17 @@ class Config
     private $localeStrategy = null;
     private $serverStrategy = null;
     private $accountPath = null;
+    private $requestDomain = null;
+
+    public function getAccount()
+    {
+        return 'easydrain';
+    }
+
+    public function setRequestDomain($host)
+    {
+        $this->requestDomain = $host;
+    }
 
     public function setAccountPath($path)
     {
