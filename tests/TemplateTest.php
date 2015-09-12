@@ -2,11 +2,9 @@
 
 require __DIR__.'/../vendor/autoload.php';
 
-class TestTemplate extends \PHPUnit_Framework_TestCase
+class TemplateTest extends \PHPUnit_Framework_TestCase
 {
-    private $accountData = '/var/www/dashboard-server-package/data/testrepo/dashboard/data/accounts/easydrain';
-
-    public function testTemplate()
+    public function testTemplateData()
     {
         $template = "Welcome {{name}} , You win \${{value}} dollars!!\n";
         $phpStr = LightnCandy::compile($template);

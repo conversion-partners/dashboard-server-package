@@ -5,6 +5,12 @@ class Config
     private $domains = null;
     private $origins = null;
     private $debug = null;
+    private $localeStrategy = null;
+
+    public function setLocaleStrategy($strategy)
+    {
+        $this->localeStrategy = $strategy;
+    }
 
     public function setDebug($debug)
     {
