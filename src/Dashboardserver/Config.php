@@ -2,7 +2,6 @@
 
 namespace Dashboardserver;
 
-
 class Config
 {
     private $domains = null;
@@ -12,8 +11,7 @@ class Config
 
     public function setLocaleStrategy($strategy)
     {
-        $className = $strategy;
-        $object = new Dashboardserver\Locale\Strategies\$className();
+        $object = new Locale\Strategies\DomainFolder();
         $this->localeStrategy = $object;
     }
 

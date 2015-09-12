@@ -1,5 +1,7 @@
 <?php
 
+namespace Dashboardserver\Locale\Strategies;
+
 abstract class AbstractStrategy
 {
     abstract protected function getValue();
