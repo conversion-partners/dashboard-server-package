@@ -8,18 +8,8 @@ class Server
     private $server;
     private $account;
 
-    private function setAccount($account)
+    public function getLocaleFolder()
     {
-        $this->account = $account;
-    }
-
-    private function setConfig($config)
-    {
-        $this->conf = $config;
-    }
-    private function setServerVars($server)
-    {
-        $this->server = $server;
     }
     public function start()
     {
@@ -32,5 +22,18 @@ class Server
         $this->setConfig($config);
         $this->setAccount($account);
         $this->setServerVars($server);
+    }
+    private function setAccount($account)
+    {
+        $this->account = $account;
+    }
+
+    private function setConfig($config)
+    {
+        $this->conf = $config;
+    }
+    private function setServerVars($server)
+    {
+        $this->server = $server;
     }
 }

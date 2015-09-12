@@ -8,6 +8,7 @@ class Config
     private $origins = null;
     private $debug = null;
     private $localeStrategy = null;
+    private $serverStrategy = null;
     private $accountPath = null;
 
     public function setAccountPath($path)
@@ -17,8 +18,14 @@ class Config
 
     public function setLocaleStrategy($strategy)
     {
-        $object = new Locale\Strategies\DomainFolder();
-        $this->localeStrategy = $object;
+        $class = 'Dashboardserver\Locale\Strategies\\'.$strategy;
+        $this->localeStrategy = new $class();
+    }
+
+    public function setServerStrategy($strategy)
+    {
+        $class = 'Dashboardserver\Server\Strategies\\'.$strategy;
+        $this->serverStrategy = new $class();
     }
 
     public function setDebug($debug)
