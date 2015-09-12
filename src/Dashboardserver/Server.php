@@ -17,10 +17,9 @@ class Server
         print_r($this->conf);
         print_r($this->server);
     }
-    public function __construct($config, $account, $server)
+    public function __construct($config, $server)
     {
         $this->setConfig($config);
-        $this->setAccount($account);
         $this->setServerVars($server);
     }
     private function setAccount($account)
@@ -35,5 +34,8 @@ class Server
     private function setServerVars($server)
     {
         $this->server = $server;
+
+        // based on request set account
+        //         $this->setAccount($account);
     }
 }
