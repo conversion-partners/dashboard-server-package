@@ -4,7 +4,7 @@
 include_once dirname(__FILE__).'/src/Dashboardserver/Config.php';
 require __DIR__.'/vendor/autoload.php';
 use Dashboardserver\Server;
-use Dashboardserver\Config as Config;
+use Dashboardserver\Config;
 
 $config = new Config();
 $config->setDebug(true);
