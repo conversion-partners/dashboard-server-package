@@ -22,8 +22,6 @@ class Server
 
     private function getPageFolder()
     {
-        print_r($this->account);
-
         return $this->account->getPageFolder();
     }
 

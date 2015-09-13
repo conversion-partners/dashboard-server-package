@@ -13,6 +13,16 @@ class DomainFolder extends AbstractStrategy
         $this->host = $host;
     }
 
+    public function getCountry()
+    {
+        return $this->tld;
+    }
+
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
     private function process()
     {
         $host = parse_url('http://'.$this->host);
@@ -29,7 +39,9 @@ class DomainFolder extends AbstractStrategy
         print_r($urlParts);
         if (count($urlParts) > 2) {
             // see if there is a language component
-            $this->language = 'null';// see if arr[1] exist in language array
+            // see if arr[1] exist in language array
+        } else {
+            $this->language = 'null';
         }
     }
 
