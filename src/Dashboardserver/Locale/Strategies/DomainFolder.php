@@ -36,7 +36,7 @@ class DomainFolder extends AbstractStrategy
         $url = $this->server->getUrl();
 
         $urlParts = explode('/', $url);
-        print_r($urlParts);
+        //print_r($urlParts);
         if (count($urlParts) > 2) {
             // see if there is a language component
             // see if arr[1] exist in language array

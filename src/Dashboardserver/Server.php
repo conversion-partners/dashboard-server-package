@@ -27,12 +27,14 @@ class Server
 
     private function getVersionFolder()
     {
+        return $this->account->getVersionFolder();
     }
 
     private function getPagePath()
     {
-        $path = $this->account->getSites().'/'.$this->getLocaleFolder().$this->getPageFolder().$this->getVersionFolder().'index.html';
+        $path = $this->account->getSites().'/'.$this->getLocaleFolder().'pages/'.$this->getPageFolder().'versions/'.$this->getVersionFolder().'index.html';
 
+        $path = strtolower($path);
         echo 'Page path : '.$path;
 
         return $path;

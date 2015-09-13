@@ -42,7 +42,19 @@ class Account
     public function getPageFolder()
     {
         $page = $this->getCompletePage();
+
+        return $page['page'].'/';
+    }
+
+    public function getVersionFolder()
+    {
+        // needs caching and optimizing
+        $page = $this->getCompletePage();
         //print_r($page);
+        $versions = $page['versions'];
+        print_r($versions);
+
+        return $versions[0]['title'].'/';
     }
 
     public function getPage()
