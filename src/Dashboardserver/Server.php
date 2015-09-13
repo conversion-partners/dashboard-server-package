@@ -35,18 +35,23 @@ class Server
         $path = $this->account->getSites().'/'.$this->getLocaleFolder().'pages/'.$this->getPageFolder().'versions/'.$this->getVersionFolder().'index.html';
 
         $path = strtolower($path);
-        echo 'Page path : '.$path;
+        //echo 'Page path : '.$path;
 
         return $path;
     }
 
     public function pageExists()
     {
-        return file_exists($this->getPagePath());
+        $path = dirname(__FILE__).'/../../'.$this->getPagePath();
+        $exists = file_exists($path);
+
+        return $exists;
     }
     public function showPage()
     {
-        $page = file_get_contents($this->getPagePath());
+        $page = file_get_contents(dirname(__FILE__).'/../../'.$this->getPagePath());
+        echo $page;
+        exit;
     }
 
     public function showEnv()

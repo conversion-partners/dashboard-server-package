@@ -24,7 +24,7 @@ class Account
     private function getCompletePage()
     {
         //FIXME for small site this is ok big site ??? performance issues
-        $strJson = file_get_contents($this->getJsonPages());
+        $strJson = file_get_contents(dirname(__FILE__).'/../../'.$this->getJsonPages());
         $pages = json_decode($strJson, true);
         foreach ($pages as $page) {
             if ($this->server->getUrl() == $page['url']) {
@@ -52,7 +52,6 @@ class Account
         $page = $this->getCompletePage();
         //print_r($page);
         $versions = $page['versions'];
-        print_r($versions);
 
         return $versions[0]['title'].'/';
     }
