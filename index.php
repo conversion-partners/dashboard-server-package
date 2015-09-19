@@ -12,7 +12,11 @@ $config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'eas
 $config->setDomainAliases(array('www.easydrain.com' => 'easydrain.com', 'acceptance.easydrain.com' => 'easydrain.com'));
 $config->setLocaleStrategy('DomainFolder');
 $config->setServerStrategy('Nginx');
-$config->setAccountPath('/var/www/easy-sanitary-solutions/html/dashboard/data/accounts/');
+if (isset($_SERVER['APPLICATION_ENV']) && $_SERVER['APPLICATION_ENV'] == 'develop') {
+    $config->setAccountPath('/var/www/easy-sanitary-solutions/html/dashboard/data/accounts/');
+} else {
+    $config->setAccountPath('/var/www/html/dashboard/data/accounts/');
+}
 
 if ($config->getDebug()) {
     error_reporting(E_ALL);
@@ -30,7 +34,5 @@ $server = new Server($config, $server_env);
 
 if ($server->pageExists()) {
     $server->showPage();
+    die();
 }
-
-//die('end');
-
