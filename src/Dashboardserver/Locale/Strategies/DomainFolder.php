@@ -37,9 +37,16 @@ class DomainFolder extends AbstractStrategy
 
         $urlParts = explode('/', $url);
         //print_r($urlParts);
+
+        $lang = array('en', 'fr', 'nl', 'Linux');
+
         if (count($urlParts) > 2) {
             // see if there is a language component
             // see if arr[1] exist in language array
+
+            if (in_array(strtolower($urlParts[1]), $lang)) {
+                $this->language = strtolower($urlParts[1]);
+            }
         } else {
             $this->language = 'null';
         }
@@ -49,6 +56,6 @@ class DomainFolder extends AbstractStrategy
     {
         $this->process();
 
-        return $this->host.'_'.$this->tld.'-'.$this->language.'/';
+        return $this->host.'_'.$this->language.'-null/';
     }
 }

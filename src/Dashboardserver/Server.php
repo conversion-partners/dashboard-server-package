@@ -35,7 +35,7 @@ class Server
         $path = $this->account->getSites().'/'.$this->getLocaleFolder().'pages/'.$this->getPageFolder().'versions/'.$this->getVersionFolder().'index.html';
 
         $path = strtolower($path);
-        //echo 'Page path : '.$path;
+        echo '<div style="display:none;">Page path : '.$path.'</div>';
 
         return $path;
     }

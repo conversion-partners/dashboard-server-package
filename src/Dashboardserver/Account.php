@@ -27,15 +27,17 @@ class Account
         //FIXME for small site this is ok big site ??? performance issues
         $jsonPages = $this->getJsonPages();
         //echo $jsonPages.'<br>';
-        $strJson = file_get_contents($jsonPages);
-        $pages = json_decode($strJson, true);
-        //print_r($pages);
-        //echo '<pre>';
-        //echo 'url : '.$this->server->getUrl().'<br>';
-        foreach ($pages as $page) {
-            if ($this->server->getUrl() == $page['url']) {
-                return $page; // yup just the first page
-            }
+        if (file_exists($jsonPages)) {
+            $strJson = file_get_contents($jsonPages);
+            $pages = json_decode($strJson, true);
+          //print_r($pages);
+          //echo '<pre>';
+          //echo 'url : '.$this->server->getUrl().'<br>';
+          foreach ($pages as $page) {
+              if ($this->server->getUrl() == $page['url']) {
+                  return $page; // yup just the first page
+              }
+          }
         }
 
         return false;
