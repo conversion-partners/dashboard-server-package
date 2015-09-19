@@ -12,7 +12,7 @@ $config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'eas
 $config->setDomainAliases(array('www.easydrain.com' => 'easydrain.com', 'acceptance.easydrain.com' => 'easydrain.com'));
 $config->setLocaleStrategy('DomainFolder');
 $config->setServerStrategy('Nginx');
-$config->setAccountPath('data/accounts/');
+$config->setAccountPath('/var/www/easy-sanitary-solutions/html/dashboard/data/accounts/');
 
 if ($config->getDebug()) {
     error_reporting(E_ALL);
@@ -24,10 +24,13 @@ $server_env = array(
   'REQUEST_URI' => '/reference-hotels-w',
   );
 
-//$server_env = $_SERVER;
+$server_env = $_SERVER;
 
 $server = new Server($config, $server_env);
 
 if ($server->pageExists()) {
     $server->showPage();
 }
+
+//die('end');
+

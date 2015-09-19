@@ -23,9 +23,15 @@ class Account
 
     private function getCompletePage()
     {
+
         //FIXME for small site this is ok big site ??? performance issues
-        $strJson = file_get_contents(dirname(__FILE__).'/../../'.$this->getJsonPages());
+        $jsonPages = $this->getJsonPages();
+        //echo $jsonPages.'<br>';
+        $strJson = file_get_contents($jsonPages);
         $pages = json_decode($strJson, true);
+        //print_r($pages);
+        //echo '<pre>';
+        //echo 'url : '.$this->server->getUrl().'<br>';
         foreach ($pages as $page) {
             if ($this->server->getUrl() == $page['url']) {
                 return $page; // yup just the first page
@@ -42,6 +48,8 @@ class Account
     public function getPageFolder()
     {
         $page = $this->getCompletePage();
+
+        //print_r($page);
 
         return $page['page'].'/';
     }

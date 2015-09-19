@@ -42,14 +42,15 @@ class Server
 
     public function pageExists()
     {
-        $path = dirname(__FILE__).'/../../'.$this->getPagePath();
+        $path = $this->getPagePath();
+        //echo '<br>'.$path.'<br>';
         $exists = file_exists($path);
 
         return $exists;
     }
     public function showPage()
     {
-        $page = file_get_contents(dirname(__FILE__).'/../../'.$this->getPagePath());
+        $page = file_get_contents($this->getPagePath());
         echo $page;
         exit;
     }
