@@ -76,10 +76,7 @@ class Account
 
         return $version;
     }
-    public function getSite()
-    {
-        return '/easydrain.nl_null-null';
-    }
+
     public function getPageDir()
     {
         $site = $this->getSite();

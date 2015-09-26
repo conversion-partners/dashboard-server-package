@@ -33,10 +33,8 @@ class Server
     private function getPagePath()
     {
         $path = $this->account->getSites().'/'.$this->getLocaleFolder().'pages/'.$this->getPageFolder().'versions/'.$this->getVersionFolder().'index.html';
-
         $path = strtolower($path);
-        echo '<div style="display:none;">Page path : '.$path.'</div>';
-
+        //echo '<div style="display:none;">Page path : '.$path.'</div>';
         return $path;
     }
 
@@ -87,7 +85,7 @@ class Server
         if ($account) {
             $this->setAccount($account);
         } else {
-            echo 'No account for this request..';
+            //echo 'No account for this request..';
 
             return;
         }

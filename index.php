@@ -8,7 +8,7 @@ use Dashboardserver\Config;
 
 $config = new Config();
 $config->setDebug(true);
-$config->setDomains(array('easydrain.com' => 'easydrain', 'easydrain.nl' => 'easydrain'));
+$config->setDomains(array('easydrain.com' => 'easydrain', 'www.easydrain.com' => 'easydrain', 'easydrain.nl' => 'easydrain', 'easydrain.co.uk' => 'easydrain', 'www.easydrain.co.uk' => 'easydrain'));
 $config->setDomainAliases(array('www.easydrain.com' => 'easydrain.com', 'acceptance.easydrain.com' => 'easydrain.com'));
 $config->setLocaleStrategy('DomainFolder');
 $config->setServerStrategy('Nginx');
